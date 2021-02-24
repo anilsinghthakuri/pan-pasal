@@ -23,17 +23,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('tables')->insert([
-            'table_name'=>'table1',
+            'table_name'=>'customer',
 
         ]);
-        DB::table('tables')->insert([
-            'table_name'=>'table2',
 
-        ]);
-        DB::table('tables')->insert([
-            'table_name'=>'table3',
-
-        ]);
 
         DB::table('products')->insert([
             'product_name'=>'chickenMOMO',
@@ -62,9 +55,7 @@ class DatabaseSeeder extends Seeder
         DB::table('payment_methods')->insert([
             'payment_method_name'=>'cash',
         ]);
-        DB::table('payment_methods')->insert([
-            'payment_method_name'=>'credit',
-        ]);
+
         DB::table('customers')->insert([
             'customer_username'=>'walkin',
             'customer_phone'=>'0000000000',

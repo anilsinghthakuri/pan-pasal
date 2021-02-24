@@ -24,8 +24,9 @@ class Possale extends Component
     {
         $this->shipping = 0;
         $this->discount = 0;
+        $this->table = 1;
+
         $this->tableid = $this->tablenameid();
-        $this->table = 0;
         $this->order  = Order::where('table_id',$this->table)->where('bill_status',0)->get();
         $this->totalprice = $this->totalamt();
         $this->grandprice = $this->grandpricecalc();

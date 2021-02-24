@@ -36,9 +36,9 @@
             <div class="row row__margin">
                 <div class="col-sm-12">
                     <form class="d-flex">
-                        <input class="form-control me-2" type="text" placeholder="Search food by name"
+                        <input class="form-control me-2" type="number" placeholder="Search Item By Code"
                             wire:model='search' aria-label="Search" id="">
-                        <button class=" btn-search transition__btn">Search</button>
+                        <button class=" btn-search transition__btn" type="button" wire:click='addproduct({{$search}})'>Add</button>
                     </form>
                 </div>
             </div>
@@ -54,18 +54,14 @@
     </div>
     <div class="row">
 
-        <div class="col-sm-4">
+        <div class="col-sm-6">
 
             <div class="btn__full_width"><button onclick="openNav()" type="button" class="btn btn-success btn-md">
                     <span class="span__categories">Category</span></button></div>
 
         </div>
-        <div class="col-sm-4">
-            <div class="btn__full_width"><button type="button" wire:click='alcohol'
-                    class="btn btn-info btn-md text-light"><span class="span__categories">Alcohol</span></button>
-                </button></div>
-        </div>
-        <div class="col-sm-4">
+
+        <div class="col-sm-6">
             <div class="btn__full_width"><button type="button" wire:click='allproduct'
                     class="btn btn-danger btn-md "><span class="span__categories">All Product</span></button></div>
         </div>
@@ -75,14 +71,20 @@
 
 
         <div class="all__product">
-
+            <div>
+                @if (session()->has('message'))
+                <div class="alert alert-danger">
+                    {{ session('message') }}
+                </div>
+                @endif
+            </div>
             <div class="row row-cols-5" value="PLAY">
                 @foreach ($product as $products)
                 <div class="col px-0" onclick="play()" wire:click='addproduct({{$products->product_id}})'>
                     <div class="item__items item__height item__hover">
-                        <div class="image__inner">
+                        {{-- <div class="image__inner">
                             <img src="img/{{$products->product_image}}" class="card-img-top" alt="...">
-                        </div>
+                        </div> --}}
 
                         <div class="card-detail text-center">
                             <h5 class="card-title"> {{$products->product_name}}</h5>
@@ -91,7 +93,10 @@
                     </div>
                 </div>
                 @endforeach
+
             </div>
+
+
 
 
         </div>

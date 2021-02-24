@@ -6,10 +6,10 @@
 
                     {{-- <div class="btn__full_width p-2"><button type="button" class="btn btn-danger btn-md">KHALTI</button>
                     </div> --}}
-                    <div class="btn__full_width "><button type="button" onclick="play()" wire:click = "kot_bill_print({{$table}})"  class="btn btn-success btn-md px-5 mb-3 P-class-btn">KOT</button>
+                    {{-- <div class="btn__full_width "><button type="button" onclick="play()" wire:click = "kot_bill_print({{$table}})"  class="btn btn-success btn-md px-5 mb-3 P-class-btn">KOT</button>
                     </div>
                     <div class="btn__full_width mx-2"><button type="button" onclick="play()"  class="btn btn-info btn-md px-5 mb-3 P-class-btn"  data-bs-toggle="modal" data-bs-target="#table_shift_toggle">Table Shift</button>
-                    </div>
+                    </div> --}}
                     <div class="btn__full_width"><button type="button" value="PLAY" onclick="play()" wire:click = "changecalc($table,$grandprice)" class="btn btn-danger btn-md px-5 mb-3 P-class-btn"
                             data-bs-toggle="modal" data-bs-target="#cash_toggle">Check Out</button></div>
                 </div>
@@ -50,20 +50,22 @@
                                     </div>
                                     <div class="mb-3">
 
+                                        <label for="P__amount" class="form-label">Paying Amount *</label>
+                                        <input type="number" class="form-control" wire:model = "payingamount" id="P__amount">
+
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6 ">
+                                    <div class="mb-3">
+
                                         <label for="R__change" class="form-label">Change:</label><br>
                                         <span id="R__change--number" class="form-text">
                                             RS: {{$changeamount}}
                                         </span>
 
                                     </div>
-                                </div>
-                                <div class="col-md-6 ">
-                                    <div class="mb-3">
 
-                                        <label for="P__amount" class="form-label">Paying Amount *</label>
-                                        <input type="number" class="form-control" wire:model = "payingamount" id="P__amount">
-
-                                    </div>
                                     <div class="mb-3">
 
                                         <label for="Payed__by" class="form-label">Payed  By *</label>
@@ -77,29 +79,7 @@
                                     </div>
 
                                 </div>
-                                @if ($payment  == 2)
-                                    <div class="col-md-6 ">
 
-                                        <div class="mb-6">
-
-                                            <label for="Payed__by" class="form-label">Customer Select</label>
-                                            <select class="form-select" wire:model = 'customer' aria-label="Default select example">
-                                                <option >Choose Customer</option>
-                                                @foreach ($customerlist as $item)
-                                                @if ($item->customer_id == '1')
-                                                        @continue
-                                                @endif
-                                                <option selected value={{$item->customer_id}}>{{$item->customer_username}}</option>
-                                                @endforeach
-
-                                            </select>
-
-                                        </div>
-
-                                    </div>
-
-
-                                @endif
 
                             </div>
                             <div class="row">

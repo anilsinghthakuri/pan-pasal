@@ -1,38 +1,4 @@
 <div>
-    <div class="row">
-        {{-- <div class="col-sm-4"><select class="form-select" aria-label="Default select example">
-            <option selected>Category</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select></div>
-        <div class="col-sm-4"><select class="form-select" aria-label="Default select example">
-            <option selected>Category1</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select></div> --}}
-
-        <div class="col-sm-12">
-
-            <select wire:model='table' class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                <option selected>Choose Table</option>
-                {{-- @foreach ($tableid as $table)
-                <option value="{{$table}}">{{$table->table_name}}</option>
-                @endforeach --}}
-                @foreach ($tableid as $item)
-
-                <option value="{{$item->table_id}}">{{$item->table_name}}</option>
-                @endforeach
-            </select>
-        </div>
-    </div>
-    {{-- <div class="row row__margin">
-        <div class="col-sm-12"><form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class=" btn-search transition__btn" type="submit">Search</button>
-          </form></div>
-    </div> --}}
 
     <div class="row">
         <div class="col-sm-12">

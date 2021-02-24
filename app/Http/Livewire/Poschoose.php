@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Category;
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -14,7 +15,7 @@ class Poschoose extends Component
     public $listeners = ['quant'];
     public $categorylist  = [];
     public $category  = 0;
-    public $search;
+    public $search ;
 
     use WithPagination;
 
@@ -30,10 +31,32 @@ class Poschoose extends Component
     }
 
 
-    public function addproduct($id)
+    public function addproduct($id = null)
     {
-        // dd($id);
-        $this->emitTo('possale','orderadd',$id);
+        if ($id == null) {
+            session()->flash('message', 'Enter Product Code');
+            $this->search = '';
+        }
+        else{
+            $status = $this->check_item_code($id);
+
+            if ($status == null) {
+
+                session()->flash('message', 'product not found');
+                $this->search = '';
+
+
+            }
+
+            else{
+
+                $this->emitTo('possale','orderadd',$id);
+                $this->search = '';
+
+            }
+        }
+
+
     }
 
 
@@ -52,8 +75,12 @@ class Poschoose extends Component
     public function updatedSearch()
     {
         // dd($this->search);
-        $searchterm = "%".$this->search."%";
-        $this->product = Product::where('product_name','Like',$searchterm)->get();
+         $searchterm = "%".$this->search."%";
+
+        $this->product = Product::where('product_id','Like',$searchterm)->get();
+
+        // $this->product  =  DB::statement("select * from products where product_id like".$searchterm."or product_name like".$searchterm);
+        // dd($this->product);
     }
     // public function search_product($name)
     // {
@@ -67,9 +94,19 @@ class Poschoose extends Component
         $this->product = Product::all();
     }
 
-    public function alcohol()
+    public function check_item_code($id)
     {
+        $product = [];
+        if ($id == null) {
+            $product = [];
 
+        }
+        else{
+            $product = DB::table('products')->where('product_id',$id)->first();
+
+        }
+
+        return $product;
     }
 
 

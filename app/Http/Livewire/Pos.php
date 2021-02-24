@@ -27,7 +27,7 @@ class Pos extends Component
     public $shifting_table = 0;
     public $table_order = [];
     public $customerlist =[];
-    public $payment = 0;
+    public $payment = 1;
     public $customer = 1;
     public $paymentmethodlist = [];
 

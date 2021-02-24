@@ -88,7 +88,7 @@
                 </div>
 
             </div>
-            <div class="col-md-4">
+            {{-- <div class="col-md-4">
 
                 <div class=" mb-3">
                     <label for="formFile" class="form-label">Images</label>
@@ -97,7 +97,7 @@
                 </div>
 
 
-            </div>
+            </div> --}}
 
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>

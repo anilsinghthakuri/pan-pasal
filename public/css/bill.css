@@ -1,0 +1,38 @@
+.bill__section {
+    background: #c1c1c1;
+    text-transform: uppercase;
+    font-size: 12px;
+    height: 100vh;
+    align-items: center;
+    position: relative;
+    overflow: scroll;
+
+}
+.bill__section__inner{
+    background-color: #fff;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 400px;
+    margin: 0 auto;
+    border: 1px solid #e9ecef;
+    padding: 30px;
+}
+.bill__middle__contain {
+    border-top: dotted;
+    border-bottom: dotted;
+    border-color: #4c4b4b;
+}
+.bill__middle__inner{
+    border-bottom: dotted;
+    border-color: #4c4b4b;
+}
+.menu__item {
+    border-bottom: dotted;
+    border-color: #4c4b4b;
+}
+.total__sum {
+    font-size: 30px;
+    font-weight: 600;
+}
+

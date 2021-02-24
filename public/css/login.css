@@ -1,0 +1,112 @@
+.login__section {
+    height: 100vh;
+    align-items: center;
+    position: relative;
+    background: #0202026e;
+}
+
+.login__contain {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    margin: 0 auto;
+    border: 1px solid #ffffff;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0px 5px 10px #ffffff;
+}
+input.form-control.login__input {
+    line-height: 30px;
+}
+h2.login__title {
+    width: 100%;
+    font-weight: 700;
+    font-size: 30px;
+    color: #e8f0fe;
+    margin: 0px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px #f44336;
+}
+
+img.logo__img {
+    width: 90px;
+    border-radius: 50%;
+    height: 90px;
+    object-fit: cover;
+    border: 1px solid #ced4da;
+}
+
+.images {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.add__user__section{
+    border: 1px solid #CED4DA;
+    background: white;
+    height: 500px;
+    width: 400px;
+    margin: 0 auto;
+}
+button.btn.btn-primary.btn-primary-login {
+    background-color: #1b142b;
+    border-color: #17152c;
+    height: 45px;
+    height: 54px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 100%;
+    text-transform: uppercase;
+
+}
+.login__contain.login__contain--user {
+    padding: 0px;
+}
+button.btn.btn-primary.btn-primary-login:hover{
+    background-color: #27204e;
+    border-color: #27204e;
+}
+p.login__text {
+    color: #e8f0fe;
+    margin-bottom: 0px;
+    font-size: 15px;
+    font-weight: 500;
+}
+.login__images{
+    background-image: url('../img/background1.jpg');
+    background-size: cover;
+}
+
+@media screen and (max-width: 1200px) {
+
+    .login__section {
+
+        width: 400px;
+        margin: 0 auto;
+        padding: 15px;
+    }
+    .login__contain {
+
+        width: 100%;
+        position: relative;
+
+    }
+    .login__contain.login__contain--user {
+        padding: 20px;
+    }
+
+}
+
+@media screen and (max-width: 992px) {
+
+    .add__user__section {
+       width: auto;
+       height: 350px;
+    }
+
+
+}

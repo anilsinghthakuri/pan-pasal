@@ -1,0 +1,572 @@
+body{
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 14px;
+    color: #7d7d7d;
+    background: #f1f1f1;
+
+}
+button.btn.btn-primary.font-btn-part {
+    font-size: 12px;
+    border-color: #4e73df;
+    background: #4e73df;
+}
+
+.btn-primary {
+    color: #fff;
+    border-color: #525965;
+    background: #525965;
+}
+.btn-danger {
+    border-color: #b33771;
+    background-color: #b33771;
+}
+span.span__categories {
+    font-size: 14px;
+}
+.btn-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+.btn-success{
+    background-color: #7c5cc4;
+    border-color: #7c5cc4;
+}
+span#basic-addon1 {
+    color: #7d7d7d;
+}
+img.login__img {
+    margin-right: 5px;
+}
+
+img {
+    width: 15px;
+}
+.all__product {
+    margin: 10px;
+}
+/* new css change */
+h5.card-title {
+    font-size: 12px;
+    padding-top: 10px;
+    color: #868e96;
+}
+p.card-text {
+    color: #666;
+    font-size: 13px;
+}
+/* new css changes end */
+p.card-text {
+    padding-bottom: 10px;
+}
+button{
+    border-radius: 3px;
+}
+
+.card {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 5px;
+
+}
+.btn__full_width button{
+    width: 100%;
+}
+section.section__billing {
+    padding: 0px 0px 0px 0px;
+    background: #e9ecef;
+    position: relative;
+    height: 100VH;
+}
+.item__right {
+    background-color: #ffffff;
+    padding: 10px 10px 0px 10px;
+    height: 100vh;
+    position: relative;
+}
+.row__margin {
+    padding: 0px 0px 10px;
+}
+.transition__btn{
+    display: inline-block;
+    line-height: 1;
+    background-color: #7c5cc4;
+    padding: 0px 26px;
+    color: #fff;
+    fill: #fff;
+    text-align: center;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 3px;
+}
+button.btn-search {
+    border: none;
+}
+
+button.btn-search:hover {
+    background-color: #de4c1e;
+}
+button.add {
+    margin-left: 10px;
+    border: none;
+    background: #d6deff;
+    color: #846ec6;
+    border: 2px solid #d6deff;
+    font-size: 15px;
+    font-weight: 900;
+}
+button.minus {
+    margin-right: 10px;
+    background: #d6deff;
+    color: #846ec6;
+    border: 2px solid #d6deff;
+    font-size: 15px;
+    font-weight: 900;
+}
+button.cancel {
+    background: #dc3545;
+    border: none;
+    color: #fff;
+    border: 2px solid #dc3545;
+    width: 34px;
+}
+
+
+select.form-select {
+    font-size: 14px;
+    color: #676767;
+}
+
+.d-flex--part {
+    margin-bottom: 2px;
+}
+.total__chanrge {
+    background: #e9ecef;
+    text-align: center;
+    padding: 10px 10px 10px 10px;
+
+}
+
+.total__chanrge h1 {
+    font-size: 33px;
+    color: #f4511e;
+    margin-bottom: 0;
+}
+
+.table-part{
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+h2.add__table__title{
+    font-size: 32px;
+    color: #484c54;
+
+}
+
+.table-part tbody{
+  display:block;
+  width: 100%;
+  overflow: auto;
+  height: 260px;
+  font-size: 14px;
+}
+
+.table-part thead tr {
+   display: block;
+}
+
+
+.table-part th, .table-part td {
+  text-align: left;
+  width: 200px;
+}
+
+.action-btn {
+    display: table;
+    margin: 5px;
+}
+.table-part>tbody {
+    border: 1px solid #e9ecef;
+}
+td {
+    color: #676767;
+    font-family: "Roboto", sans-serif;
+    font-size: 0.875rem;
+}
+th{
+    font-family: "Roboto", sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.50rem;
+
+}
+a.dropdown-item {
+    font-size: 15px;
+}
+a#nav-home-tab\ {
+    padding: 5px 30px;
+}
+a#nav-profile-tab\ {
+    padding: 5px 20px;
+    color: #3d2529;
+}
+a#nav-contact-tab {
+    padding: 5px 20px;
+    color: #3d2529;
+}
+.nav-padding{
+    padding: 5px 20px;
+}
+.table-head {
+    font-size: 14px;
+    color: #fff;
+    background: #4b4f55;
+}
+.page-link {
+    color: #17a2b8;
+}
+th.head {
+    width: 80px;
+}
+td.price {
+    padding-left: 25px;
+}
+td.math__add__minus {
+    padding-left: 25px;
+}
+td.total__price {
+    padding-left: 15px;
+}
+td.btn__cancel {
+    padding-left: 10px;
+}
+
+section.footer__part {
+    width: 100%;
+    background: #ffffff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-bottom: 5px solid #525965;
+}
+.pagination__right {
+    position: absolute;
+    width: 100%;
+    right: 20px;
+    bottom: 60px;
+}
+.card-body {
+    flex: 1 1 auto;
+     padding: 0rem 0rem;
+}
+.top-part {
+    background: white;
+    margin-bottom: 15px;
+}
+.login__part {
+    background: #66d203;
+    color: #fff;
+}
+img.card-img-top {
+    width: 100%;
+    height: 100%;
+    transition: transform .5s;
+    object-fit: cover;
+
+}
+.item__items{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #e9ecef;
+    border-radius: .25rem;
+}
+
+.item__height{
+    height: 100%;
+    width: 100%;
+
+    overflow: hidden;
+    border-bottom: 3px solid #e9ecef;
+}
+.item__height:hover{
+    border: 1px solid #3f51b5;
+}
+
+.item__hover:hover img {
+    -ms-transform: scale(1.3); /* IE 9 */
+    -webkit-transform: scale(1.3); /* Safari 3-8 */
+    transform: scale(1.3);
+}
+.image__inner{
+    overflow: hidden;
+    width: 100%;
+    height: 100px;
+}
+.table__list__part{
+    background-color: #fff;
+}
+.add__table__list {
+    width: 50%;
+}
+.total__chanrge h1 {
+    font-size: 28px;
+    color: #7c5cc4;
+    margin-bottom: 0;
+    font-weight: 600;
+}
+.P-class-btn {
+    padding: 14px 50px;
+    text-transform: uppercase;
+}
+
+.company__profile {
+    background: white;
+    padding: 30px;
+}
+i.fa-icon {
+    font-size: 26px;
+    color: #525965;
+}
+.nav-tabs .nav-link {
+
+    color: #7050b7;
+}
+h5.card-title.title--bill {
+    font-size: 16px;
+}
+.text-bill {
+    font-size: 20px;
+}
+span.form-text {
+    display: block;
+    font-size: 22px;
+    color: #20295b;
+}
+span.pos__div {
+    padding: 0px;
+    width: 100%;
+}
+
+.footer__part__absolute {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 240px;
+    padding: 15px;
+}
+.add__credit--list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.check__box {
+    display: flex;
+}
+.form-check--part {
+    margin-right: 30px;
+}
+img.profile-images {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+.class-profile-images {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+}
+img.table__images {
+    width: 35px;
+    height: 35px;
+    object-fit: fill;
+}
+/* The side navigation menu */
+.side__show {
+    height: 545px; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    right: 0;
+    background-color: #fff; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.3s; /* 0.5 second transition effect to slide in the side__show */
+    border: 1px solid rgb(168, 167, 167);
+}
+
+.body-class {
+    background: #fff;
+    padding: 0px 30px 20px;
+    margin: 30px 0px;
+    position: relative;
+}
+
+
+/* When you mouse over the navigation links, change their color */
+.side__show a:hover, .offcanvas a:focus{
+    color: #1a1919;
+}
+
+/* Position and style the close button (top right corner) */
+.side__show .closebtn {
+    position: absolute;
+    top: 0;
+    left: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+/* Customize website's scrollbar like Mac OS
+Not supports in Firefox and IE */
+
+/* total width */
+.scrollbar::-webkit-scrollbar {
+    background-color:#fff;
+    width:16px
+}
+
+
+
+
+/* scrollbar itself */
+.scrollbar::-webkit-scrollbar-thumb {
+    background-color:#babac0;
+    border-radius:16px;
+    border:5px solid #fff
+}
+
+
+/* set button(top and bottom of the scrollbar) */
+.scroll__class::-webkit-scrollbar-button {display:none}
+
+/* div box */
+.scroll__class {
+    height: 75vh;
+
+    min-width: 480px;
+    background: #fff;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.all__product{min-height: 100vh}
+
+
+a.nav-link.active.pos-class:hover{
+    border-color: #fff;
+}
+.nav-link {
+    padding: 0rem 0rem;
+}
+li.nav-item {
+    padding-left: 5px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-family: "Open Sans";
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+}
+a.icon-height {
+    height: 38px;
+    width: 38px;
+    overflow: hidden;
+    padding-left: 20px;
+    display: inline-table;
+}
+a.icon-height img{
+    height: 38px;
+    width: 38px;
+    object-fit: cover;
+
+}
+p.icon-height {
+    line-height: 38px;
+    margin-bottom: 0px;
+    color: white;
+
+}
+p.icon-height img{
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+a.icon-logout {
+    font-size: 20px;
+    padding-left: 20px;
+    line-height: 38px;
+    color: #c1c1c1;
+}
+a.icon-logout:hover{
+    color: #7d7d7d;
+}
+.bg-dark {
+    background-color: #4b4f55!important;
+}
+@media screen and (max-width: 1327px) {
+    li.nav-item {
+
+        font-size: 9px;
+
+    }
+  }
+  @media screen and (max-width: 1200px) {
+    ul.navbar-nav--flex {
+        flex-wrap: wrap;
+    }
+    a.nav-link {
+        padding-bottom: 15px;
+    }
+    p.icon-height {
+
+        display: flex;
+    }
+  }
+    @media screen and (max-width: 992px) {
+
+        ul.navbar-nav--flex {
+            flex-wrap: nowrap;
+            padding: 15px;
+        }
+        li.nav-item {
+
+            font-size: 11px;
+
+        }
+        .dropdown-toggle::after {
+            float: right;
+        }
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgb(247 132 132 / 75%);
+            border-bottom: 1px solid;
+            margin-bottom: 15px;
+        }
+        .add__table__list {
+            width: 100%;
+        }
+        .login__contain {
+
+            width: 100%;
+
+        }
+    }
+/* On smaller screens, where height is less than 450px, change the style of the side__show (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .side__show {padding-top: 15px;}
+    .side__show a {font-size: 18px;}
+}
+

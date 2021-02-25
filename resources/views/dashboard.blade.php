@@ -107,7 +107,7 @@
                             @foreach ($today_order_list as $item)
                             <tr>
                                 <th scope="row">{{$loop->iteration}}</th>
-                                <td>{{$item->product->product_name}}</td>
+                                <td>{{$item->product->product_name ?? ''}}</td>
                                 <td>{{$item->table_id}}</td>
                                 <td>{{$item->order_quantity}}</td>
                                 <td>{{$item->order_subprice}}</td>
@@ -135,7 +135,7 @@
                             @foreach ($week_order_list as $item)
                             <tr>
                                 <th scope="row">{{$loop->iteration}}</th>
-                                <td>{{$item->product->product_name}}</td>
+                                <td>{{$item->product->product_name ?? ''}}</td>
                                 <td>{{$item->table_id}}</td>
                                 <td>{{$item->order_quantity}}</td>
                                 <td>{{$item->order_subprice}}</td>
@@ -164,7 +164,7 @@
                             @foreach ($total_order_list as $item)
                             <tr>
                                 <th scope="row">{{$loop->iteration}}</th>
-                                <td>{{$item->product->product_name}}</td>
+                                <td>{{$item->product->product_name ?? ''}}</td>
                                 <td>{{$item->table_id}}</td>
                                 <td>{{$item->order_quantity}}</td>
                                 <td>{{$item->order_subprice}}</td>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -26,29 +27,21 @@ class productcontroller extends Controller
 
     public function addproduct(Request $request)
     {
-        if (isset($request->productname) && isset($request->file)&& isset($request->category_id)) {
 
+        $this->validate($request,[
+            'productname'=>'required|min:1|max:50|unique:products,product_name',
+            'productprice'=>'required|min:1|max:50',
+            'category_id'=>'required',
+        ]);
 
-            if ($request->hasFile('file')) {
-
-                $file = $request->file('file');
-                $destinationPath = 'img/';
-                $originalFile = $file->getClientOriginalName();
-                $file->move($destinationPath, $originalFile);
                 $file  = new Product;
                 $file->product_name = $request->productname;
                 $file->product_price = $request->productprice;
                 $file->category_id = $request->category_id;
-                $file->product_image = $originalFile;
                 $file->save();
                 return redirect('/product')->with('message', 'product upload');
 
-                }
-            }
-        else{
-            return redirect('/product');
 
-        }
     }
 
     public function edit_product($id)
@@ -94,10 +87,16 @@ class productcontroller extends Controller
 
         }
     }
-    public function deleteproduct($id)
+    public function deleteproduct(Product $id)
     {
-        Product::where('product_id',$id)->delete();
-        return redirect('/product')->with('message', 'product deleted');
+        $id->delete();
+
+
+
+            // Product::where('product_id',$id)->delete();
+            return redirect('/product')->with('message', 'product deleted');
+
+
     }
 
     public function categorylist()

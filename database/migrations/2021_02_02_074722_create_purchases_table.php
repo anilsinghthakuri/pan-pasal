@@ -18,10 +18,10 @@ class CreatePurchasesTable extends Migration
             $table->string('purchase_bill')->nullable();
             $table->integer('purchase_price');
             $table->string('purchase_vendor')->nullable();
-            $table->unsignedBigInteger('purchase_category_id');
+            $table->unsignedBigInteger('purchase_category_id')->nullable();
             $table->longText('purchase_remark')->nullable();
 
-            $table->foreign('purchase_category_id')->references('purchase_category_id')->on('categories_purchase')->onDelete('cascade');
+            $table->foreign('purchase_category_id')->references('purchase_category_id')->on('categories_purchase')->onDelete('set null');
             $table->timestamps();
         });
     }

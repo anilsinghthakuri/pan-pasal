@@ -15,12 +15,12 @@ class CreateKotsTable extends Migration
     {
         Schema::create('kots', function (Blueprint $table) {
             $table->id('kot_id');
-            $table->unsignedBigInteger('product_id');
-            $table->unsignedBigInteger('table_id');
+            $table->unsignedBigInteger('product_id')->nullable();
+            $table->unsignedBigInteger('table_id')->nullable();
             $table->boolean('status')->default(0);
 
-            $table->foreign('product_id')->references('product_id')->on('products')->onDelete('cascade');
-            $table->foreign('table_id')->references('table_id')->on('tables')->onDelete('cascade');
+            $table->foreign('product_id')->references('product_id')->on('products')->onDelete('set null');
+            $table->foreign('table_id')->references('table_id')->on('tables')->onDelete('set null');
             $table->timestamps();
         });
     }

@@ -19,10 +19,10 @@ class CreateExpensesTable extends Migration
             $table->integer('expense_price');
             $table->string('nepali_date');
             $table->string('expense_vendor')->nullable();
-            $table->unsignedBigInteger('expense_category_id');
+            $table->unsignedBigInteger('expense_category_id')->nullable();
             $table->longText('expense_remark')->nullable();
 
-            $table->foreign('expense_category_id')->references('expense_category_id')->on('categories_expense')->onDelete('cascade');
+            $table->foreign('expense_category_id')->references('expense_category_id')->on('categories_expense')->onDelete('set null');
             $table->timestamps();
         });
     }

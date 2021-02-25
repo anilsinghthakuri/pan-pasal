@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,32 +18,27 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         DB::table('categories')->insert([
             'category_name'=>'momo',
-            'category_image'=>'food1.jpg',
-
         ]);
 
         DB::table('tables')->insert([
             'table_name'=>'customer',
-
         ]);
 
 
         DB::table('products')->insert([
             'product_name'=>'chickenMOMO',
             'product_price' => 200,
-            'product_image' => 'food1.jpg',
             'category_id' => 1,
         ]);
         DB::table('products')->insert([
             'product_name'=>'steemMOMO',
             'product_price' => 100,
-            'product_image' => 'food2.jpg',
             'category_id' => 1,
         ]);
         DB::table('users')->insert([
             'name'=>'anil',
             'email' => 'anilsingh@dotsoftech.com',
-            'password' => '$2y$10$sWwb7nxxcYu/SeX1h.RMU.F1rX8jUdz5tlhMDqqR4.UAz.tCGj3.K',
+            'password' => Hash::make('123')
         ]);
         DB::table('companydatas')->insert([
             'company_name'=>'Dotsoftech',

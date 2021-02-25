@@ -15,16 +15,16 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id('order_id');
-            $table->unsignedBigInteger('product_id');
-            $table->unsignedBigInteger('table_id');
+            $table->unsignedBigInteger('product_id')->nullable();
+            $table->unsignedBigInteger('table_id')->nullable();
             $table->boolean('bill_status')->default(0);
             $table->integer('order_quantity');
             $table->integer('order_subprice');
             $table->unsignedBigInteger('bill_id')->nullable();
 
-            $table->foreign('product_id')->references('product_id')->on('products')->onDelete('cascade');
-            $table->foreign('table_id')->references('table_id')->on('tables')->onDelete('cascade');
-            $table->foreign('bill_id')->references('bill_id')->on('bills')->onDelete('cascade');
+            $table->foreign('product_id')->references('product_id')->on('products')->onDelete('set null');
+            $table->foreign('table_id')->references('table_id')->on('tables')->onDelete('set null');
+            $table->foreign('bill_id')->references('bill_id')->on('bills')->onDelete('set null');
             $table->timestamps();
         });
     }

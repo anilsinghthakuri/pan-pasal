@@ -45,11 +45,10 @@
 
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Image</th>
+                            <th scope="col">S.N</th>
                             <th scope="col">Name</th>
                             <th scope="col">Code</th>
-                            <th scope="col">Category Id</th>
+                            <th scope="col">Category</th>
                             <th scope="col">Price</th>
                             <th scope="col">Action</th>
                         </tr>
@@ -59,13 +58,9 @@
                         @foreach ($productlist as $item)
                         <tr>
                             <th scope="row">{{$loop->iteration}}</th>
-                            <td class="image-categories"><img class="img__product" src="img/{{$item->product_image}}"
-                                    class="img-fluid" alt="...">
-                            </td>
-
                             <td>{{$item->product_name}}</td>
                             <td>{{$loop->iteration}}</td>
-                            <td>{{$item->category_id}}</td>
+                            <td>{{$item->category->category_name}}</td>
                             <td>{{$item->product_price}}</td>
                             <td >
 
@@ -75,6 +70,7 @@
 
                                     <a href="/product-delete/{{$item->product_id}}"></button>
                                         <button type="button" class="btn btn-danger "><i class="far fa-trash-alt"></i></button></a>
+
 
 
                             </td>

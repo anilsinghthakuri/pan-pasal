@@ -15,12 +15,12 @@ class CreateCustomerCreditsTable extends Migration
     {
         Schema::create('customer_credits', function (Blueprint $table) {
             $table->id('credit_id');
-            $table->unsignedBigInteger('customer_id');
+            $table->unsignedBigInteger('customer_id')->nullable();
             $table->integer('total_amount_to_pay');
             $table->integer('amount_paid')->default(0);
             $table->integer('balance_amount')->default(0);
 
-            $table->foreign('customer_id')->references('customer_id')->on('customers')->onDelete('cascade');
+            $table->foreign('customer_id')->references('customer_id')->on('customers')->onDelete('set null');
             $table->timestamps();
         });
     }

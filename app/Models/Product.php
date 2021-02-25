@@ -13,6 +13,11 @@ class Product extends Model
 
     public function order()
     {
-        return $this->hasOne(Order::class,'order_id','product_id');
+        return $this->hasMany(Order::class,'order_id','product_id');
+    }
+
+    public function category()
+    {
+        return $this->hasOne(Category::class,'category_id','category_id');
     }
 }

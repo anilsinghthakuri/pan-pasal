@@ -60,7 +60,7 @@
                             <th scope="row">{{$loop->iteration}}</th>
                             <td>{{$item->product_name}}</td>
                             <td>{{$loop->iteration}}</td>
-                            <td>{{$item->category->category_name}}</td>
+                            <td>{{$item->category->category_name ?? ''}}</td>
                             <td>{{$item->product_price}}</td>
                             <td >
 

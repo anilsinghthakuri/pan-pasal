@@ -101,16 +101,17 @@ class ExpenseController extends Controller
 
     public function add_expense_category(Request $request)
     {
-        if (isset($request->categoryname)) {
-            DB::table('categories_expense')->insert([
-                'expense_category_name' => $request->categoryname,
+        $this->validate($request,[
+            'categoryname'=>'required|max:50|min:1'
+        ]);
 
+            DB::table('categories_expense')->insert([
+                'expense_category_name'=>$request->categoryname,
             ]);
+
             return redirect('/expense-category')->with('message', 'Category  upload');
 
         }
-
-    }
 
     public function edit_expense_category($id)
     {

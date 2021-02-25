@@ -9,8 +9,7 @@
                 <div class="d-flex bd-highlight">
                     <div class="p-2 flex-grow-1 bd-highlight menu__part"><img src="/img/menu.png" alt="menu"></div>
 
-                    <div class="p-2 bd-highlight login__part"><img class="login__img" src="/img/user.png"
-                            alt="menu">Login</div>
+
                 </div>
             </div>
         </div>
@@ -34,8 +33,18 @@
         <div class="alert alert-success">
             {{ session('message') }}
         </div>
-    @endif
-       </div>
+        @endif
+
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+    </div>
 
     <form class="add__product__form" action="/product-update" method="POST" enctype="multipart/form-data">
         <div class="row  mt-3">
@@ -46,10 +55,11 @@
 
                 <div class="input-group mb-3">
                     <label class="input-group-text" for="inputGroupSelect01">type</label>
-                    <select class="form-select" name="category_id"  id="inputGroupSelect01">
-                        <option >Choose...</option>
+                    <select class="form-select" name="category_id" id="inputGroupSelect01">
+
                         @foreach ($categorylist as $item)
-                        <option {{ $product->category_id == $item->category_id? 'selected' : '' }} value='{{$item->category_id}}'  >{{$item->category_name}}</option>
+                        <option {{ $product->category_id == $item->category_id? 'selected' : '' }}
+                            value='{{$item->category_id}}'>{{$item->category_name}}</option>
                         @endforeach
 
                     </select>
@@ -66,8 +76,10 @@
                 </div>-->
 
                 <div class="input-group mb-3">
-                    <span class="input-group-text"  for="name" id="basic-addon1"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-                    <input type="text" class="form-control" name="productname" id="" value={{$product->product_name}} aria-label="Username" aria-describedby="basic-addon1">
+                    <span class="input-group-text" for="name" id="basic-addon1"><i class="fa fa-pencil"
+                            aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" name="productname" id="" value={{$product->product_name}}
+                        aria-label="Username" aria-describedby="basic-addon1">
                 </div>
 
             </div>
@@ -75,27 +87,12 @@
 
                 <label for="exampleInputEmail1" class="form-label">Product Price</label>
 
-
-                <!--<div class="input-group mb-3">
-                    <label class="input-group-text" for="productprice">Price</label>
-                    <input type="number" name="productprice" id="">
-                    </select>
-                </div>-->
-
                 <div class="input-group mb-3">
-                    <span class="input-group-text"  for="productprice" id="basic-addon1"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-                    <input type="number" class="form-control" name="productprice" id="" value="{{$product->product_price}}" aria-label="Username" aria-describedby="basic-addon1">
+                    <span class="input-group-text" for="productprice" id="basic-addon1"><i class="fa fa-pencil"
+                            aria-hidden="true"></i></span>
+                    <input type="number" class="form-control" name="productprice" id=""
+                        value="{{$product->product_price}}" aria-label="Username" aria-describedby="basic-addon1">
                 </div>
-
-            </div>
-            <div class="col-md-4">
-
-                <div class=" mb-3">
-                    <label for="formFile" class="form-label">Images</label>
-                    <input class="form-control" type="file" value="{{$product->product_image}}" name="file">
-                    </select>
-                </div>
-
 
             </div>
 

@@ -58,7 +58,7 @@
                 <table class="table table-bordered bg-light table-responsiv">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">S.N</th>
                             <th scope="col">Categories Name</th>
                             <th scope="col">Action</th>
 
@@ -71,10 +71,9 @@
                             <th scope="row">{{$loop->iteration }}</th>
                             <td>{{$item->expense_category_name}}</td>
                             <td class="d-flex">
-                                <a href="/expense-category/{{$item->expense_category_id}}"><button type="button" class="btn btn-primary action-btn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
+                                <a href="/expense-category/{{$item->expense_category_id}}"><button type="button" class="btn btn-primary action-btn"><i class="fas fa-edit"></i></button></a>
 
-                                <a href="/expense-category-delete/{{$item->expense_category_id}}"><button type="button" class="btn btn-danger action-btn"><i class="fa fa-trash-o"
-                                            aria-hidden="true"></i></button></a>
+                                <a href="/expense-category-delete/{{$item->expense_category_id}}"><button type="button" class="btn btn-danger action-btn"><i class="far fa-trash-alt"></i></button></a>
                             </td>
                         </tr>
                         @endforeach

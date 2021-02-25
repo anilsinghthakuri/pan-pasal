@@ -10,6 +10,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\OrdersExport;
 use App\Models\Companydata;
 use App\Models\Expense;
+use Spatie\Permission\Models\Role;
 
 class DashboardController extends Controller
 {
@@ -17,7 +18,6 @@ class DashboardController extends Controller
     {
 
         $profit = $this->profit_calc();
-
 
         $total_expense  = $this->expense_calc();
 

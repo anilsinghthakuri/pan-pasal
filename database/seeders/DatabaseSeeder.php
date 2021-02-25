@@ -2,9 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +19,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        Role::create(['name'=>'admin']);
+        Role::create(['name'=>'owner']);
+        Role::create(['name'=>'accountant']);
+        Role::create(['name'=>'user']);
+
         DB::table('categories')->insert([
             'category_name'=>'momo',
         ]);
@@ -35,11 +43,25 @@ class DatabaseSeeder extends Seeder
             'product_price' => 100,
             'category_id' => 1,
         ]);
+
         DB::table('users')->insert([
-            'name'=>'anil',
-            'email' => 'anilsingh@dotsoftech.com',
-            'password' => Hash::make('123')
+            'name'=>'admin',
+            'email' => 'admin@user.com',
+            'password' => Hash::make('12345678')
         ]);
+
+        DB::table('users')->insert([
+            'name'=>'owner',
+            'email' => 'owner@user.com',
+            'password' => Hash::make('12345678')
+        ]);
+
+        DB::table('users')->insert([
+            'name'=>'accountant',
+            'email' => 'accountant@user.com',
+            'password' => Hash::make('12345678')
+        ]);
+
         DB::table('companydatas')->insert([
             'company_name'=>'Dotsoftech',
             'company_address' => 'Dhangadhi kailali',
@@ -56,5 +78,33 @@ class DatabaseSeeder extends Seeder
             'customer_phone'=>'0000000000',
             'customer_address'=>'xxxxxxxx',
         ]);
+
+
+       $user = User::findorfail(1);
+       $user->assignRole('admin');
+
+       $user = User::findorfail(2);
+       $user->assignRole('owner');
+
+       $user = User::findorfail(3);
+       $user->assignRole('accountant');
+
+        //for create permession in the app
+        Permission::create(['name'=>'view']);
+        Permission::create(['name'=>'edit']);
+        Permission::create(['name'=>'create']);
+        Permission::create(['name'=>'delete']);
+        Permission::create(['name'=>'pos']);
+
+
+
+        $role = Role::findbyid(1);
+        $role->givePermissionTo(Permission::all());
+
+        $role = Role::findbyid(2);
+        $role->givePermissionTo(Permission::all());
+
+        $role = Role::findbyid(3);
+        $role->givePermissionTo('pos');
     }
 }

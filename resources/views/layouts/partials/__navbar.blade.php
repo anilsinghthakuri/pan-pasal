@@ -7,10 +7,13 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarScroll">
         <ul class="navbar-nav  navbar-nav--flex m-auto my-2  my-lg-0 navbar-nav-scroll">
+            @can('pos')
             <li class="nav-item padding-left">
                 <a class="nav-link  " aria-current="active" href="/pos"><i class="fa fa-credit-card"></i>
                     pos</a>
             </li>
+
+            @endcan
             {{-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="tableId" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false"> <i class="fas fa-table"></i>
@@ -20,7 +23,11 @@
                     <li><a class="dropdown-item" href="/table"> Add Table</a></li>
                 </ul>
             </li> --}}
+            @can('view')
             <li class="nav-item dropdown">
+
+
+
                 <a class="nav-link dropdown-toggle" href="#" id="productID" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-archive"></i>
                     Product
@@ -39,9 +46,17 @@
 
             </li>
 
+            @endcan
+
+            @can('view')
+
             <li class="nav-item">
                 <a class="nav-link  " aria-current="active" href="#"> <i class="fa fa-hospital"></i> Store</a>
             </li>
+
+            @endcan
+
+            @can('view')
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="productID" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-users"></i> People
@@ -59,6 +74,11 @@
                 </ul>
 
             </li>
+            @endcan
+
+
+
+            @can('view')
             <li class="nav-item dropdown">
 
                 <a class="nav-link dropdown-toggle" href="#" id="saleID" role="button" data-bs-toggle="dropdown"
@@ -76,6 +96,11 @@
                 </ul>
 
             </li>
+            @endcan
+
+
+
+            @can('view')
             <li class="nav-item dropdown">
 
                 <a class="nav-link dropdown-toggle" href="#" id="expanseID" role="button"
@@ -96,7 +121,12 @@
                 </ul>
 
             </li>
+            @endcan
 
+
+
+
+            @can('view')
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="categoriesId" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false"><i class="far fa-bookmark"></i> Categories
@@ -115,7 +145,12 @@
                 </ul>
 
             </li>
+            @endcan
 
+
+
+
+            @can('view')
             <li class="nav-item dropdown">
 
                 <a class="nav-link dropdown-toggle" href="#" id="saleID" role="button" data-bs-toggle="dropdown"
@@ -135,8 +170,12 @@
                 </ul>
 
             </li>
+            @endcan
 
 
+
+
+            @can('view')
             <li class="nav-item dropdown">
 
                 <a class="nav-link dropdown-toggle" href="#" id="saleID" role="button" data-bs-toggle="dropdown"
@@ -156,6 +195,8 @@
                 </ul>
 
             </li>
+            @endcan
+
 
 
         </ul>

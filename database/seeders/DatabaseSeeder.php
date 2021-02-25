@@ -95,6 +95,7 @@ class DatabaseSeeder extends Seeder
         Permission::create(['name'=>'create']);
         Permission::create(['name'=>'delete']);
         Permission::create(['name'=>'pos']);
+        Permission::create(['name'=>'dashboard_view']);
 
 
 

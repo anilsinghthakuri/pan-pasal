@@ -4,11 +4,13 @@
             <div class="top-part">
                 <div class="d-flex bd-highlight">
                     <div class="p-2 flex-grow-1 bd-highlight menu__part">
+                        @can('dashboard_view')
                         <a href="/dashboard">
                             <button type="button" class="btn btn-primary font-btn-part">
                                 <img src="img/menu.png" alt="menu"> Dashbord
                             </button>
                         </a>
+                        @endcan
 
                     </div>
                     <!--<div class="p-2 bd-highlight help__part"><img src="img/help.svg" alt="menu">Help</div>-->
@@ -19,7 +21,9 @@
                                 <img class="login__img" src="img/user.png" alt="menu"> {{Auth::user()->name}}
                             </button>
                             <ul class="dropdown-menu">
+                                @can('create')
                                 <li><a class="dropdown-item" href="/adduser">Add User</a></li>
+                                @endcan
                                 <li><a class="dropdown-item" href="/logout">Log out</a></li>
 
                             </ul>
@@ -38,7 +42,7 @@
                     <form class="d-flex">
                         <input class="form-control me-2" type="number" placeholder="Search Item By Code"
                             wire:model='search' aria-label="Search" id="">
-                        <button class=" btn-search transition__btn" type="button" wire:click='addproduct({{$search}})'>Add</button>
+                        <button class=" btn-search transition__btn" type="button" value="PLAY"  wire:click='addproduct({{$search}})'>Add</button>
                     </form>
                 </div>
             </div>
@@ -129,9 +133,6 @@
                     @foreach ($categorylist as $item)
                     <div class="col px-0" wire:click='choosecategory({{$item->category_id}})'>
                         <div class="item__items item__height item__hover">
-                            <div class="image__inner">
-                                <img src="/img/{{$item->category_image }}" class="card-img-top" alt="...">
-                            </div>
 
                             <div class="card-detail text-center">
                                 <h5 class="card-title"> {{$item->category_name}}</h5>

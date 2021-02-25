@@ -45,6 +45,7 @@ Route::middleware(['auth'])->group(function () {
 
     // route to sall product
     Route::view('/pos', 'pos')->middleware('can:pos');
+    Route::view('/startpage', 'startpage');
 
     // Route to add and delete category livewire done here
 

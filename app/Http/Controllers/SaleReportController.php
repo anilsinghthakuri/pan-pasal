@@ -1,10 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
+require_once __DIR__ . '../../../../vendor/autoload.php';
 
+use Nilambar\NepaliDate\NepaliDate;
+use App\Exports\OrdersExport;
 use App\Models\Bill;
+use Carbon\Carbon;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SaleReportController extends Controller
 {
@@ -62,5 +67,32 @@ class SaleReportController extends Controller
         }
         $amount = array_sum($total);
         return $amount;
+    }
+
+    public function export()
+    {
+        $date = $this->nepalidate();
+        return Excel::download(new OrdersExport, 'order_by_report_until'.$date.'.xlsx');
+    }
+
+    public function nepalidate()
+    {
+        $endate = Carbon::now();
+        $year = $endate->year;
+        $month = $endate->month;
+        $day = $endate->day;
+
+        $obj = new NepaliDate();
+
+        $date = $obj->convertAdToBs($year, $month, $day);
+
+        $current_year = $date['year'];
+        $current_month = $date['month'];
+        $current_day = $date['day'];
+
+        $current_date = $current_year.'/'.$current_month.'/'.$current_day;
+
+        return $current_date;
+
     }
 }

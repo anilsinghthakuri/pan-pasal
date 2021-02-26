@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Http\Livewire;
+require_once __DIR__ . '../../../../vendor/autoload.php';
 
+use Nilambar\NepaliDate\NepaliDate;
 use App\Models\Kot;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Table;
+use Carbon\Carbon;
 use Livewire\Component;
 
 class Possale extends Component
@@ -68,9 +71,11 @@ class Possale extends Component
             $order = new Order;
             $order->table_id = $this->table;
             $order->product_id = $id;
+
             $product = Product::Find($id);
 
             $price = $product['product_price'];
+            $order->nepali_date = $this->nepalidate();
 
             $order->order_quantity = 1;
             $order->order_subprice = $price;
@@ -251,7 +256,26 @@ class Possale extends Component
         Kot::where('product_id',$id)->delete();
     }
 
+    public function nepalidate()
+    {
+        $endate = Carbon::now();
+        $year = $endate->year;
+        $month = $endate->month;
+        $day = $endate->day;
 
+        $obj = new NepaliDate();
+
+        $date = $obj->convertAdToBs($year, $month, $day);
+
+        $current_year = $date['year'];
+        $current_month = $date['month'];
+        $current_day = $date['day'];
+
+        $current_date = $current_year.'/'.$current_month.'/'.$current_day;
+
+        return $current_date;
+
+    }
 
     public function render()
     {

@@ -24,7 +24,7 @@ class OrdersExport implements FromCollection,WithHeadings,WithMapping
         return [
             $order->nepali_date,
             $order->order_id,
-            $order->product->product_name,
+            $order->product->product_name ?? '',
             $order->order_quantity,
             $order->order_subprice,
         ];

@@ -47,82 +47,84 @@ class billprintcontroller extends Controller
             Order::where('table_id',$table)->where('bill_status',0)->update(['bill_status' => 1,'bill_id'=>$bill_num]);
 
 
-        try {
+        // try {
 
-            $connector = new WindowsPrintConnector("pos");
+        //     $connector = new WindowsPrintConnector("pos");
 
-            $printer = new Printer($connector);
+        //     $printer = new Printer($connector);
 
-             //test data
-             $title = array(new item('Product Name','Quantity','Sub Price'));
+        //      //test data
+        //      $title = array(new item('Product Name','Quantity','Sub Price'));
 
-            // ($orderdata);
-             foreach ($orderdata as $key => $value) {
-               $product_id = $orderdata[$key]['product_id'];
-                 $productname = DB::table('products')->where('product_id',$product_id)->first();
+        //     // ($orderdata);
+        //      foreach ($orderdata as $key => $value) {
+        //        $product_id = $orderdata[$key]['product_id'];
+        //          $productname = DB::table('products')->where('product_id',$product_id)->first();
 
-                 $items[] = new item ($productname->product_name,$orderdata[$key]['order_quantity'],$orderdata[$key]['order_subprice']) ;
-             }
+        //          $items[] = new item ($productname->product_name,$orderdata[$key]['order_quantity'],$orderdata[$key]['order_subprice']) ;
+        //      }
 
-            //header of bill
-             $printer->setJustification(Printer::JUSTIFY_CENTER);
-             $printer->selectPrintMode(Printer::MODE_DOUBLE_WIDTH);
-             $printer->text("Dotsoft Ltd.\n");
-             $printer->selectPrintMode();
-             $printer->text("Dhangadhi,Kailali.\n");
-             $printer->feed();
+        //     //header of bill
+        //      $printer->setJustification(Printer::JUSTIFY_CENTER);
+        //      $printer->selectPrintMode(Printer::MODE_DOUBLE_WIDTH);
+        //      $printer->text("Dotsoft Ltd.\n");
+        //      $printer->selectPrintMode();
+        //      $printer->text("Dhangadhi,Kailali.\n");
+        //      $printer->feed();
 
-            //Bill type
-            $printer->setEmphasis(true);
-            $printer->text("SALES INVOICE\n");
-            $printer->setEmphasis(false);
-            $printer->feed(2);
+        //     //Bill type
+        //     $printer->setEmphasis(true);
+        //     $printer->text("SALES INVOICE\n");
+        //     $printer->setEmphasis(false);
+        //     $printer->feed(2);
 
-            //title of bill
-            $printer->setJustification(Printer::JUSTIFY_LEFT);
-            $printer->setEmphasis(true);
-            foreach ($title as $item) {
+        //     //title of bill
+        //     $printer->setJustification(Printer::JUSTIFY_LEFT);
+        //     $printer->setEmphasis(true);
+        //     foreach ($title as $item) {
 
-                $printer->text($item->getAsString(32)); // for 58mm Font A
-            }
-            $printer->setEmphasis(false);
-            $printer->feed();
+        //         $printer->text($item->getAsString(32)); // for 58mm Font A
+        //     }
+        //     $printer->setEmphasis(false);
+        //     $printer->feed();
 
-            //bill body
-            $printer->setJustification(Printer::JUSTIFY_LEFT);
-            foreach ($items as $item) {
-                $printer->text($item->getAsString(32)); // for 58mm Font A
-            }
+        //     //bill body
+        //     $printer->setJustification(Printer::JUSTIFY_LEFT);
+        //     foreach ($items as $item) {
+        //         $printer->text($item->getAsString(32)); // for 58mm Font A
+        //     }
 
-            //total
-            $printer->feed(2);
-            $printer->setJustification(Printer::JUSTIFY_CENTER);
-            $printer->selectPrintMode(Printer::MODE_DOUBLE_WIDTH);
-            $printer->setEmphasis(true);
-            $printer->text("Total: ".$total_price."\n");
-            $printer->selectPrintMode();
-            $printer->setEmphasis(false);
+        //     //total
+        //     $printer->feed(2);
+        //     $printer->setJustification(Printer::JUSTIFY_CENTER);
+        //     $printer->selectPrintMode(Printer::MODE_DOUBLE_WIDTH);
+        //     $printer->setEmphasis(true);
+        //     $printer->text("Total: ".$total_price."\n");
+        //     $printer->selectPrintMode();
+        //     $printer->setEmphasis(false);
 
-            //footer
-            $printer->feed(2);
-             $printer->setJustification(Printer::JUSTIFY_CENTER);
-             $printer->text("Thank you for shopping\n");
-             $printer->text("at Dotsoft\n");
-             $printer->text("For trading hours,\n");
-             $printer->text("please visit\n");
-             $printer->feed(2);
+        //     //footer
+        //     $printer->feed(2);
+        //      $printer->setJustification(Printer::JUSTIFY_CENTER);
+        //      $printer->text("Thank you for shopping\n");
+        //      $printer->text("at Dotsoft\n");
+        //      $printer->text("For trading hours,\n");
+        //      $printer->text("please visit\n");
+        //      $printer->feed(2);
 
-            //close and cut paper
-            $printer->cut();
-            $printer->pulse();
+        //     //close and cut paper
+        //     $printer->cut();
+        //     $printer->pulse();
 
 
-        }
-        catch (Exception $e) {
-            echo $e->getMessage();
-        } finally {
-            $printer->close();
-        }
+        // }
+        // catch (Exception $e) {
+        //     // echo $e->getMessage();
+        // return redirect()->back();
+
+        // } finally {
+        //     $printer->close();
+        // }
         return redirect()->back();
     }
 

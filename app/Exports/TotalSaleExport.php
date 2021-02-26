@@ -24,7 +24,7 @@ class TotalSaleExport implements FromCollection,WithHeadings,WithMapping
         return [
             $bill->nepali_date,
             $bill->bill_id,
-            $bill->payment_method->payment_method_name,
+            $bill->payment_method->payment_method_name ?? '',
             $bill->bill_total_amount,
         ];
     }

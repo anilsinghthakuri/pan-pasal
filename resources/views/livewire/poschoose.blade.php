@@ -1,62 +1,63 @@
 <div class="item__images">
     <div class="row">
-        <div class="col-md-12">
-            <div class="top-part">
-                <div class="d-flex bd-highlight">
-                    <div class="p-2 flex-grow-1 bd-highlight menu__part">
-                        @can('dashboard_view')
-                        <a href="/dashboard">
-                            <button type="button" class="btn btn-primary font-btn-part">
-                                <img src="img/menu.png" alt="menu"> Dashbord
-                            </button>
-                        </a>
-                        @endcan
 
-                    </div>
-                    <!--<div class="p-2 bd-highlight help__part"><img src="img/help.svg" alt="menu">Help</div>-->
-                    <div class="p-2 bd-highlight ">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-primary dropdown-toggle font-btn-part"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <img class="login__img" src="img/user.png" alt="menu"> {{Auth::user()->name}}
-                            </button>
-                            <ul class="dropdown-menu">
-                                @can('create')
-                                <li><a class="dropdown-item" href="/adduser">Add User</a></li>
-                                @endcan
-                                <li><a class="dropdown-item" href="/logout">Log out</a></li>
+        <div class="top-part">
+            <div class="d-flex bd-highlight">
+                <div class="p-2 flex-grow-1 bd-highlight menu__part">
+                    @can('dashboard_view')
+                    <a href="/dashboard">
+                        <button type="button" class="btn btn-primary font-btn-part">
+                            <img src="img/menu.png" alt="menu"> Dashbord
+                        </button>
+                    </a>
+                    @endcan
 
-                            </ul>
-                        </div>
+                </div>
+                <!--<div class="p-2 bd-highlight help__part"><img src="img/help.svg" alt="menu">Help</div>-->
+                <div class="p-2 bd-highlight ">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary dropdown-toggle font-btn-part"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img class="login__img" src="img/user.png" alt="menu"> {{Auth::user()->name}}
+                        </button>
+                        <ul class="dropdown-menu">
+                            @can('create')
+                            <li><a class="dropdown-item" href="/adduser">Add User</a></li>
+                            @endcan
+                            <li><a class="dropdown-item" href="/logout">Log out</a></li>
+
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
+
 
     </div>
     <div class="row">
 
-        <div class="col-sm-12">
-            <div class="row row__margin">
-                <div class="col-sm-12">
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="number" placeholder="Search Item By Code"
-                            wire:model='search' aria-label="Search" id="">
-                        <button class=" btn-search transition__btn" type="button" value="PLAY"  wire:click='addproduct({{$search}})'>Add</button>
-                    </form>
-                </div>
+
+        <div class=" row__margin">
+            <div class="col-sm-12">
+                <form class="d-flex">
+                    <input class="form-control me-2 form-font" type="number" placeholder="Search Item By Code" wire:model='search'
+                        aria-label="Search" id="">
+                    <button class=" btn-search transition__btn" type="button" value="PLAY"
+                        wire:click='addproduct({{$search}})'>Add</button>
+                </form>
             </div>
-
-            {{-- <div class="btn__full_width"><input type="text" placeholder="search food by name" wire:model='search' name="search" id=""></div> --}}
-
         </div>
+
+        {{-- <div class="btn__full_width"><input type="text" placeholder="search food by name" wire:model='search' name="search" id=""></div> --}}
+
+
         {{-- <div class="col-sm-4">
             <div class="btn__full_width"><button type="button" wire:click='alcohol'
                     class="btn btn-info btn-md text-light"><span class="span__categories">Alcohol</span></button> </button></div>
         </div> --}}
 
     </div>
-    <div class="row">
+    <div class="row row__margin">
 
         <div class="col-sm-6">
 
@@ -71,55 +72,41 @@
         </div>
 
     </div>
-    <div class="scroll__class">
+    <div class="row">
+        <div class="scroll__class">
 
 
-        <div class="all__product">
-            <div>
-                @if (session()->has('message'))
-                <div class="alert alert-danger">
-                    {{ session('message') }}
+            <div class="all__product">
+                <div>
+                    @if (session()->has('message'))
+                    <div class="alert alert-danger">
+                        {{ session('message') }}
+                    </div>
+                    @endif
                 </div>
-                @endif
-            </div>
-            <div class="row row-cols-5" value="PLAY">
-                @foreach ($product as $products)
-                <div class="col px-0" onclick="play()" wire:click='addproduct({{$products->product_id}})'>
-                    <div class="item__items item__height item__hover">
-                        {{-- <div class="image__inner">
-                            <img src="img/{{$products->product_image}}" class="card-img-top" alt="...">
-                        </div> --}}
+                <div class="row row-cols-3" value="PLAY">
+                    @foreach ($product as $products)
+                    <div class="col-sm-4 px-0" onclick="play()" wire:click='addproduct({{$products->product_id}})'>
+                        <div class="item__items item__height item__hover">
 
-                        <div class="card-detail text-center">
-                            <h5 class="card-title"> {{$products->product_name}}</h5>
-                            <p class="card-text">RS:{{$products->product_price}}</p>
+
+                            <div class="card-detail text-center">
+                                <h5 class="card-title"> {{$products->product_name}}</h5>
+                                <p class="card-text">RS:{{$products->product_price}}</p>
+                            </div>
                         </div>
                     </div>
+                    @endforeach
+
                 </div>
-                @endforeach
+
+
+
 
             </div>
-
-
-
-
         </div>
     </div>
-    {{-- <div class="row pagination__right">
-        <div class="d-flex flex-row-reverse">
-            <nav aria-label="Page ">
-                <ul class="pagination">
 
-                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
-            </nav>
-        </div>
-
-    </div> --}}
 
     <!--sidebar show -->
     <div id="categories__part" class="side__show ">
@@ -128,8 +115,8 @@
             <h4 class="text-light bg-primary px-5 py-3 ">Categories</h4>
 
             <div class="all__product ">
-
-                <div class="row row-cols-5" value="PLAY" onclick="play()">
+                <div class="row">
+                <div class="col-sm-3" value="PLAY" onclick="play()">
                     @foreach ($categorylist as $item)
                     <div class="col px-0" wire:click='choosecategory({{$item->category_id}})'>
                         <div class="item__items item__height item__hover">
@@ -141,6 +128,7 @@
                     </div>
                     @endforeach
                 </div>
+            </div>
 
 
             </div>

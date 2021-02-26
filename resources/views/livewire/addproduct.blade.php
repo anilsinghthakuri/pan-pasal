@@ -136,20 +136,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary" wire:click = 'addproduct'>Submit</button>
                 </form>
-                {{-- <div class="row pagination__right pagination__add_product">
-                    <div class="d-flex flex-row-reverse">
-                        <nav aria-label="Page ">
-                            <ul class="pagination">
-                              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                              <li class="page-item"><a class="page-link" href="#">1</a></li>
-                              <li class="page-item"><a class="page-link" href="#">2</a></li>
-                              <li class="page-item"><a class="page-link" href="#">3</a></li>
-                              <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                            </ul>
-                          </nav>
-                    </div>
 
-                </div> --}}
 
             </div>
         </div>

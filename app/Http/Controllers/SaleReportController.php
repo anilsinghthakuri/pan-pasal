@@ -5,6 +5,7 @@ require_once __DIR__ . '../../../../vendor/autoload.php';
 
 use Nilambar\NepaliDate\NepaliDate;
 use App\Exports\OrdersExport;
+use App\Exports\TotalSaleExport;
 use App\Models\Bill;
 use Carbon\Carbon;
 use Illuminate\Support\Arr;
@@ -72,7 +73,7 @@ class SaleReportController extends Controller
     public function export()
     {
         $date = $this->nepalidate();
-        return Excel::download(new OrdersExport, 'order_by_report_until'.$date.'.xlsx');
+        return Excel::download(new TotalSaleExport, 'Sale report until '.$date.'.xlsx');
     }
 
     public function nepalidate()
@@ -90,7 +91,7 @@ class SaleReportController extends Controller
         $current_month = $date['month'];
         $current_day = $date['day'];
 
-        $current_date = $current_year.'/'.$current_month.'/'.$current_day;
+        $current_date = $current_year.'-'.$current_month.'-'.$current_day;
 
         return $current_date;
 

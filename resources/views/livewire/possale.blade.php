@@ -95,7 +95,7 @@
                         </td>
                         <td>{{$orders->order_subprice}}</td>
 
-                        <td>
+                        <td style="text-align: center">
 
 
                             <button type="button"  data-bs-toggle="dropdown" aria-expanded="false" style="border: none">

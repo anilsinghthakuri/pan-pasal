@@ -40,8 +40,8 @@
         <div class=" row__margin">
             <div class="col-sm-12">
                 <form class="d-flex">
-                    <input class="form-control me-2 form-font" type="number" placeholder="Search Item By Code" wire:model='search'
-                        aria-label="Search" id="">
+                    <input class="form-control me-2 form-font" type="number" placeholder="Search Item By Code"
+                        wire:model='search' aria-label="Search" id="">
                     <button class=" btn-search transition__btn" type="button" value="PLAY"
                         wire:click='addproduct({{$search}})'>Add</button>
                 </form>
@@ -116,19 +116,19 @@
 
             <div class="all__product ">
                 <div class="row">
-                <div class="col-sm-3" value="PLAY" onclick="play()">
-                    @foreach ($categorylist as $item)
-                    <div class="col px-0" wire:click='choosecategory({{$item->category_id}})'>
-                        <div class="item__items item__height item__hover">
+                    <div class="col-sm-3" value="PLAY" onclick="play()">
+                        @foreach ($categorylist as $item)
+                        <div class="col px-0" wire:click='choosecategory({{$item->category_id}})'>
+                            <div class="item__items item__height item__hover">
 
-                            <div class="card-detail text-center">
-                                <h5 class="card-title"> {{$item->category_name}}</h5>
+                                <div class="card-detail text-center">
+                                    <h5 class="card-title"> {{$item->category_name}}</h5>
+                                </div>
                             </div>
                         </div>
+                        @endforeach
                     </div>
-                    @endforeach
                 </div>
-            </div>
 
 
             </div>

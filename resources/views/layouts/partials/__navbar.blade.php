@@ -81,19 +81,9 @@
             @can('view')
             <li class="nav-item dropdown">
 
-                <a class="nav-link dropdown-toggle" href="#" id="saleID" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false"><i class="fa fa-ticket-alt"></i>
+                <a class="nav-link " href="/total-sale" id="saleID" role="button" ><i class="fa fa-ticket-alt"></i>
                     Sale
                 </a>
-
-                <ul class="dropdown-menu" aria-labelledby="saleID">
-
-
-                    <li>
-                        <a class="dropdown-item" href="/total-sale">Total Sale</a>
-                    </li>
-
-                </ul>
 
             </li>
             @endcan
@@ -134,7 +124,7 @@
                 <ul class="dropdown-menu" aria-labelledby="categoriesId">
 
                     <li>
-                        <a class="dropdown-item" href="/categories">Add & show categories List</a>
+                        <a class="dropdown-item" href="/categories">Product Categories </a>
                     </li>
                     <li>
                         <a class="dropdown-item" href="/expense-category">Expense Category
@@ -187,9 +177,6 @@
 
                     <li>
                         <a class="dropdown-item" href="/cash-sale">Cash Sale</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="/credit-sale">Credit Sale</a>
                     </li>
 
                 </ul>

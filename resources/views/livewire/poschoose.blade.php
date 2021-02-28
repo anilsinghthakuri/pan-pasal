@@ -84,13 +84,13 @@
                     </div>
                     @endif
                 </div>
-                <div class="row row-cols-3" value="PLAY">
+                <div class="row row-cols-1" value="PLAY">
                     @foreach ($product as $products)
-                    <div class="col-sm-4 px-0" onclick="play()" wire:click='addproduct({{$products->product_id}})'>
+                    <div class="col-sm-12 px-0" onclick="play()" wire:click='addproduct({{$products->product_id}})'>
                         <div class="item__items item__height item__hover">
 
 
-                            <div class="card-detail text-center">
+                            <div class="card-detail ">
                                 <h5 class="card-title"> {{$products->product_name}}</h5>
                                 <p class="card-text">RS:{{$products->product_price}}</p>
                             </div>

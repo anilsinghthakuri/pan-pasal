@@ -84,13 +84,13 @@
                     </div>
                     @endif
                 </div>
-                <div class="row row-cols-3" value="PLAY">
+                <div class="row row-cols-1" value="PLAY">
                     @foreach ($product as $products)
-                    <div class="col-sm-4 px-0" onclick="play()" wire:click='addproduct({{$products->product_id}})'>
+                    <div class="col-sm-12 margin-bottom-part px-0" onclick="play()" wire:click='addproduct({{$products->product_id}})'>
                         <div class="item__items item__height item__hover">
 
 
-                            <div class="card-detail text-center">
+                            <div class="card-detail ">
                                 <h5 class="card-title"> {{$products->product_name}}</h5>
                                 <p class="card-text">RS:{{$products->product_price}}</p>
                             </div>
@@ -112,16 +112,16 @@
     <div id="categories__part" class="side__show ">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <div class="p-3">
-            <h4 class="text-light bg-primary px-5 py-3 ">Categories</h4>
+            <h4 class="text-light table-head px-3 py-2 text-center ">Categories</h4>
 
             <div class="all__product ">
                 <div class="row">
-                    <div class="col-sm-3" value="PLAY" onclick="play()">
+                    <div class="col-sm-12" value="PLAY" onclick="play()">
                         @foreach ($categorylist as $item)
                         <div class="col px-0" wire:click='choosecategory({{$item->category_id}})'>
                             <div class="item__items item__height item__hover">
 
-                                <div class="card-detail text-center">
+                                <div class="card-detail ">
                                     <h5 class="card-title"> {{$item->category_name}}</h5>
                                 </div>
                             </div>
@@ -141,7 +141,7 @@
 </div>
 <script>
     function openNav() {
-        document.getElementById("categories__part").style.width = "700px";
+        document.getElementById("categories__part").style.width = "385px";
         document.getElementById("main").style.marginLeft = "250px";
     }
 

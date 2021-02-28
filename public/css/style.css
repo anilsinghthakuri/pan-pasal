@@ -51,7 +51,7 @@ img {
 /* new css change */
 h5.card-title {
     font-size: 12px;
-    padding-top: 10px;
+    padding-top: 0px;
     color: #868e96;
 }
 p.card-text {
@@ -60,10 +60,16 @@ p.card-text {
 }
 /* new css changes end */
 p.card-text {
-    padding-bottom: 10px;
+    padding-bottom: 0px;
+    margin-bottom: 0;
+    padding-left: 15px;
+    color: #7c5cc4;
 }
 button{
     border-radius: 3px;
+}
+.card-title {
+    margin-bottom: 0rem;
 }
 
 .card {
@@ -135,6 +141,11 @@ button.minus {
 select.form-select {
     font-size: 14px;
     color: #676767;
+}
+.card-detail {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
 }
 
 .d-flex--part {
@@ -304,9 +315,10 @@ img.card-img-top {
 .item__height{
     height: 100%;
     width: 100%;
-
     overflow: hidden;
-    border-bottom: 3px solid #e9ecef;
+}
+.margin-bottom-part{
+    margin-bottom: 2px;
 }
 .item__height:hover{
     border: 1px solid #3f51b5;
@@ -426,9 +438,12 @@ img.table__images {
 .side__show .closebtn {
     position: absolute;
     top: 0;
-    left: 25px;
+    left: 0px;
     font-size: 36px;
     margin-left: 50px;
+    background: #b33771;
+    padding: 0px 30px;
+    color: #f8f9fa;
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */

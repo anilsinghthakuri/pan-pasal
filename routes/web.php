@@ -109,7 +109,9 @@ Route::middleware(['auth'])->group(function () {
         // route for dashboard
         Route::get('/dashboard',[DashboardController::class,'index']);
         Route::get('/export-orders',[DashboardController::class,'export']);
-        Route::get('/export-orders-pdf',[DashboardController::class,'exportpdf']);
+
+        //export bill report
+        Route::get('/export-bill',[SaleReportController::class,'export']);
 
         // route for add user
         Route::get('/adduser',[UserController::class,'index']);

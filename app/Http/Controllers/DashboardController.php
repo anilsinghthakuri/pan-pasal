@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+require_once __DIR__ . '../../../../vendor/autoload.php';
 
+use Nilambar\NepaliDate\NepaliDate;
 use App\Models\Bill;
 use App\Models\Order;
 use Carbon\Carbon;
@@ -28,6 +30,8 @@ class DashboardController extends Controller
         $total_revenue = $this->totalrevenuecalc();
         $week_revenue = $this->weekrevenuecalc();
         $today_revenue = $this->todayrevenuecalc();
+
+
         return view('dashboard',[
             'total_revenue'=>$total_revenue,
             'week_revenue'=>$week_revenue,
@@ -37,6 +41,8 @@ class DashboardController extends Controller
             'today_order_list'=>$today_order_list,
             'week_order_list'=>$week_order_list,
             'total_order_list'=>$total_order_list,
+
+
 
             'total_expense'=>$total_expense,
 
@@ -129,7 +135,9 @@ class DashboardController extends Controller
 
     public function export()
     {
-        return Excel::download(new OrdersExport, 'orders.xlsx');
+        $date = $this->nepalidate();
+        return Excel::download(new OrdersExport, 'order report until '.$date.'.xlsx');
+
     }
 
     private function company_data()
@@ -162,6 +170,27 @@ class DashboardController extends Controller
         $profit = $revenue - $expense ;
 
         return $profit;
+    }
+
+    public function nepalidate()
+    {
+        $endate = Carbon::now();
+        $year = $endate->year;
+        $month = $endate->month;
+        $day = $endate->day;
+
+        $obj = new NepaliDate();
+
+        $date = $obj->convertAdToBs($year, $month, $day);
+
+        $current_year = $date['year'];
+        $current_month = $date['month'];
+        $current_day = $date['day'];
+
+        $current_date = $current_year.'-'.$current_month.'-'.$current_day;
+
+        return $current_date;
+
     }
 
 

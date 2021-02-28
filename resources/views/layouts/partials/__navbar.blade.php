@@ -79,9 +79,9 @@
 
 
             @can('view')
-            <li class="nav-item dropdown">
+            <li class="nav-item ">
 
-                <a class="nav-link " href="/total-sale" id="saleID" role="button" ><i class="fa fa-ticket-alt"></i>
+                <a class="nav-link " href="/total-sale" id="saleID"><i class="fa fa-ticket-alt"></i>
                     Sale
                 </a>
 
@@ -124,7 +124,7 @@
                 <ul class="dropdown-menu" aria-labelledby="categoriesId">
 
                     <li>
-                        <a class="dropdown-item" href="/categories">Product Categories </a>
+                        <a class="dropdown-item" href="/categories">Product Categories</a>
                     </li>
                     <li>
                         <a class="dropdown-item" href="/expense-category">Expense Category

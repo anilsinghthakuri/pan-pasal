@@ -6,9 +6,12 @@ body{
 
 }
 button.btn.btn-primary.font-btn-part {
-    font-size: 12px;
+    font-size: 0.775rem;
     border-color: #4e73df;
     background: #4e73df;
+}
+.form-font{
+    font-size: 0.775rem;
 }
 
 .btn-primary {
@@ -19,9 +22,10 @@ button.btn.btn-primary.font-btn-part {
 .btn-danger {
     border-color: #b33771;
     background-color: #b33771;
+
 }
 span.span__categories {
-    font-size: 14px;
+    font-size: 0.775rem;
 }
 .btn-info {
     background-color: #17a2b8;
@@ -72,19 +76,18 @@ button{
     width: 100%;
 }
 section.section__billing {
-    padding: 0px 0px 0px 0px;
     background: #e9ecef;
     position: relative;
     height: 100VH;
+    padding: 15px 5px;
 }
 .item__right {
     background-color: #ffffff;
-    padding: 10px 10px 0px 10px;
     height: 100vh;
     position: relative;
 }
 .row__margin {
-    padding: 0px 0px 10px;
+    margin-bottom: 10px;
 }
 .transition__btn{
     display: inline-block;
@@ -98,6 +101,7 @@ section.section__billing {
     -o-transition: all 0.3s;
     transition: all 0.3s;
     border-radius: 3px;
+    font-size: 0.775rem;
 }
 button.btn-search {
     border: none;
@@ -123,12 +127,8 @@ button.minus {
     font-size: 15px;
     font-weight: 900;
 }
-button.cancel {
-    background: #dc3545;
-    border: none;
-    color: #fff;
-    border: 2px solid #dc3545;
-    width: 34px;
+.add__minus {
+    display: flex;
 }
 
 
@@ -144,6 +144,16 @@ select.form-select {
     background: #e9ecef;
     text-align: center;
     padding: 10px 10px 10px 10px;
+    margin: 10px;
+    position: absolute;
+    bottom: 95px;
+    margin: 0 auto;
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x)/ 2);
+    padding-left: calc(var(--bs-gutter-x)/ 2);
+    margin-top: var(--bs-gutter-y);
 
 }
 
@@ -169,7 +179,7 @@ h2.add__table__title{
   width: 100%;
   overflow: auto;
   height: 260px;
-  font-size: 14px;
+  font-size: 0.775rem;
 }
 
 .table-part thead tr {
@@ -192,11 +202,11 @@ h2.add__table__title{
 td {
     color: #676767;
     font-family: "Roboto", sans-serif;
-    font-size: 0.875rem;
+       font-size: 0.775rem;
 }
 th{
     font-family: "Roboto", sans-serif;
-    font-size: 0.875rem;
+       font-size: 0.775rem;
     line-height: 1.50rem;
 
 }
@@ -220,7 +230,7 @@ a#nav-contact-tab {
 .table-head {
     font-size: 14px;
     color: #fff;
-    background: #4b4f55;
+    background: #7c5cc4;
 }
 .page-link {
     color: #17a2b8;
@@ -261,7 +271,7 @@ section.footer__part {
 }
 .top-part {
     background: white;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 .login__part {
     background: #66d203;
@@ -284,7 +294,13 @@ img.card-img-top {
     border: 1px solid #e9ecef;
     border-radius: .25rem;
 }
+.table-scroll{
+    height: 75vh;
+    min-width: 280px;
+    background: #fff;
+    overflow-y: scroll;
 
+}
 .item__height{
     height: 100%;
     width: 100%;
@@ -351,13 +367,7 @@ span.pos__div {
     width: 100%;
 }
 
-.footer__part__absolute {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    height: 240px;
-    padding: 15px;
-}
+
 .add__credit--list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -454,7 +464,7 @@ Not supports in Firefox and IE */
 .scroll__class {
     height: 75vh;
 
-    min-width: 480px;
+    min-width: 280px;
     background: #fff;
 
     overflow-y: scroll;

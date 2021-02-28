@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('product_id')->nullable();
             $table->unsignedBigInteger('table_id')->nullable();
             $table->boolean('bill_status')->default(0);
+            $table->string('nepali_date');
             $table->integer('order_quantity');
             $table->integer('order_subprice');
             $table->unsignedBigInteger('bill_id')->nullable();

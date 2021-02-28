@@ -5,14 +5,24 @@
 
     <div class="row ">
 
-        <div class="col-md-12 pt-2">
-            <div class="add__categories_bottom">
+        <div class="col-md-2 ">
+            <div class="  add__categories_bottom">
                 <!-- Button trigger modal -->
                 <h2>Total Sale</h2>
             </div>
 
 
         </div>
+        <div class="col-md-4 ">
+            <div class=''>
+                <!-- Button trigger modal -->
+                <a href="/export-bill"><button class="btn btn-primary mx-5 btn-sm my-3">Excel report download</button></a>
+
+            </div>
+
+
+        </div>
+
 
     </div>
 
@@ -27,6 +37,7 @@
                     @endif
                 </div>
                 <div class="table-responsive">
+
                 <table class="table table-bordered bg-light table-responsiv">
 
                     <thead>

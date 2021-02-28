@@ -98,7 +98,6 @@
                           <tr>
                             <th scope="col">Order ID</th>
                             <th scope="col">Product Name</th>
-                            <th scope="col">Table Number</th>
                             <th scope="col">Order Quantity</th>
                             <th scope="col">Sub-Price</th>
                           </tr>
@@ -108,12 +107,13 @@
                             <tr>
                                 <th scope="row">{{$loop->iteration}}</th>
                                 <td>{{$item->product->product_name ?? ''}}</td>
-                                <td>{{$item->table_id}}</td>
                                 <td>{{$item->order_quantity}}</td>
                                 <td>{{$item->order_subprice}}</td>
-                              </tr>
-                            @endforeach
 
+                            @endforeach
+                        </tr>
+                            <th colspan="3">Total Amount</th>
+                            <td>{{$today_revenue}}</td>
 
                         </tbody>
                     </table>
@@ -126,7 +126,6 @@
                           <tr>
                             <th scope="col">Order ID</th>
                             <th scope="col">Product Name</th>
-                            <th scope="col">Table Number</th>
                             <th scope="col">Order Quantity</th>
                             <th scope="col">Sub-Price</th>
                           </tr>
@@ -136,11 +135,13 @@
                             <tr>
                                 <th scope="row">{{$loop->iteration}}</th>
                                 <td>{{$item->product->product_name ?? ''}}</td>
-                                <td>{{$item->table_id}}</td>
                                 <td>{{$item->order_quantity}}</td>
                                 <td>{{$item->order_subprice}}</td>
                               </tr>
                             @endforeach
+                        </tr>
+                        <th colspan="3">Total Amount</th>
+                        <td>{{$week_revenue}}</td>
 
 
                         </tbody>
@@ -154,7 +155,6 @@
                           <tr>
                             <th scope="col">Order ID</th>
                             <th scope="col">Product Name</th>
-                            <th scope="col">Table Number</th>
                             <th scope="col">Order Quantity</th>
                             <th scope="col">Sub-Price</th>
                           </tr>
@@ -165,11 +165,13 @@
                             <tr>
                                 <th scope="row">{{$loop->iteration}}</th>
                                 <td>{{$item->product->product_name ?? ''}}</td>
-                                <td>{{$item->table_id}}</td>
                                 <td>{{$item->order_quantity}}</td>
                                 <td>{{$item->order_subprice}}</td>
                               </tr>
                             @endforeach
+                        </tr>
+                        <th colspan="3">Total Amount</th>
+                        <td>{{$total_revenue}}</td>
 
                         </tbody>
                     </table>

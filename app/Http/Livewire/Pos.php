@@ -19,7 +19,7 @@ use Livewire\Component;
 
 class Pos extends Component
 {
-    public $table  = 0;
+    public $table  = 1;
     public $tablelist = [];
     public $changeamount = 0;
     public $grandprice;
@@ -35,6 +35,7 @@ class Pos extends Component
 
     public function mount()
     {
+        $this->grandprice = $this->calc_grand_amount_after_refresh();
         $this->payingamount = 0;
         $this->tablelist = $this->table_list();
         $this->table_order = $this->table_order_data();
@@ -267,6 +268,20 @@ class Pos extends Component
 
         return $current_date;
 
+    }
+
+    public function calc_grand_amount_after_refresh()
+    {
+        $total = [];
+        $total_price = 0;
+
+        $order = Order::where('table_id',$this->table)->where('bill_status',0)->get();
+        foreach ($order as $key => $value) {
+            $total[] = $order[$key]['order_subprice'];
+        }
+
+        $total_price = array_sum($total);
+        return $total_price;
     }
 
     public function render()

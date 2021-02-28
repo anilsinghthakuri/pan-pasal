@@ -5,80 +5,12 @@
 <div class="col-md-12 mt-3 ">
     <div class="row">
         <div class="col-md-12">
-            <h2 class="add__table__title mb-4 mt-4">Dashboard</h2>
+            <h2 class="add__table__title mb-4 mt-4">Sale Itemwise</h2>
         </div>
 
     </div>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="card__design">
-                <div class="card text-center">
-                    <div class="card-header">
-                        <i class="fa fa-tasks fa-icon" aria-hidden="true"></i>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title title--bill">Total Sale</h5>
 
-                    </div>
-                    <div class="card-footer text-muted text-bill">
-                        RS: {{$total_revenue}}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card__design">
-                <div class="card text-center">
-                    <div class="card-header">
-                      <i class="fa fa-recycle fa-icon" aria-hidden="true"></i>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title title--bill">Total Expenses</h5>
-
-                    </div>
-                    <div class="card-footer text-muted text-bill">
-                        RS: {{$total_expense}}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card__design">
-                <div class="card text-center">
-                    <div class="card-header">
-                        <i class="fa fa-recycle fa-icon" aria-hidden="true"></i>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title title--bill">Today's Sale</h5>
-
-                    </div>
-                    <div class="card-footer text-muted text-bill">
-                        RS: {{$today_revenue}}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card__design">
-                <div class="card text-center">
-                    <div class="card-header">
-                        <i class="fa fa-trophy fa-icon" aria-hidden="true"></i>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title title--bill ">Net Profit</h5>
-
-                    </div>
-                    <div class="card-footer text-muted text-bill">
-                        RS: {{$profit}}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-
-    {{-- <div class="row mt-2">
+    <div class="row mt-2">
         <div class="col-sm-12">
             <nav class="mb-3">
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -179,6 +111,6 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 </div>
 @endsection

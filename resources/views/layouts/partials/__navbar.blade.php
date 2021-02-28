@@ -81,24 +81,24 @@
             @can('view')
             <li class="nav-item ">
 
-                <a class="nav-link " href="/total-sale" id="saleID"><i class="fa fa-ticket-alt"></i>
-                    Sale
+                <a class="nav-link " href="/expense-list" id="saleID"><i class="fas fa-dollar-sign"></i>
+                    Expenses
                 </a>
 
             </li>
             @endcan
 
 
-
+{{--
             @can('view')
             <li class="nav-item dropdown">
 
-                <a class="nav-link dropdown-toggle" href="#" id="expanseID" role="button"
+                <a class="nav-link dropdown-toggle" href="/expense-list" id="expanseID" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-dollar-sign"></i>
                     Expense
                 </a>
 
-                <ul class="dropdown-menu" aria-labelledby="expanseID">
+                {{-- <ul class="dropdown-menu" aria-labelledby="expanseID">
 
                     <li>
                         <a class="dropdown-item" href="/expense-add">Add Expenses</a>
@@ -108,10 +108,10 @@
                         <a class="dropdown-item" href="/expense-list">Expenses List</a>
                     </li>
 
-                </ul>
+                </ul> --}}
 
-            </li>
-            @endcan
+            {{-- </li>
+            @endcan --}}
 
 
 
@@ -176,7 +176,13 @@
                 <ul class="dropdown-menu" aria-labelledby="saleID">
 
                     <li>
+                        <a class="dropdown-item" href="/total-sale">Total Sale</a>
+                    </li>
+                    <li>
                         <a class="dropdown-item" href="/cash-sale">Cash Sale</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="/order-sale">Sale Itemwise</a>
                     </li>
 
                 </ul>

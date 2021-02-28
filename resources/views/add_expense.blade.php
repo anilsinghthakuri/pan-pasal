@@ -63,7 +63,7 @@
                 </div>
 
             </div>
-            <div class="col-md-6">
+            {{-- <div class="col-md-6">
 
                 <label for="expense_price" class="form-label">Vendor</label>
                 <div class="input-group mb-3">
@@ -71,7 +71,7 @@
                     <input type="text" class="form-control"  name="expensevendor" id="" placeholder="Vendor Name" aria-label="Username" aria-describedby="basic-addon1">
                 </div>
 
-            </div>
+            </div> --}}
             <div class="col-sm-12">
 
 

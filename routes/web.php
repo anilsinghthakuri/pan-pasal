@@ -131,6 +131,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/total-sale',[SaleReportController::class,'index_total_sale']);
         Route::get('/cash-sale',[SaleReportController::class,'index_cash_sale']);
         Route::get('/credit-sale',[SaleReportController::class,'index_credit_sale']);
+        Route::get('/order-sale',[DashboardController::class,'order_by_sale']);
         //route for assets
         Route::get('/assets', [AssetController::class,'index']);
         Route::post('/assets', [AssetController::class,'add_assets']);

@@ -45,7 +45,7 @@
                             <th scope="col">Date</th>
                             <th scope="col">Bill No</th>
                             <th scope="col">Category</th>
-                            <th scope="col">Vendor</th>
+                            {{-- <th scope="col">Vendor</th> --}}
                             <th scope="col">Amount </th>
                             <th scope="col">Remark </th>
 
@@ -63,7 +63,7 @@
                                 {{$item->expense_bill}}
                             </td>
                             <td> {{$item->expense_category_id}}</td>
-                            <td>{{$item->expense_vendor}}</td>
+                            {{-- <td>{{$item->expense_vendor}}</td> --}}
                             <td>{{$item->expense_price}}</td>
                             <td>{{$item->expense_remark}}</td>
                         </tr>

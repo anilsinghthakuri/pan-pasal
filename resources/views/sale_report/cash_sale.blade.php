@@ -43,9 +43,7 @@
                             <th scope="col">S.N</th>
                             <th scope="col">Date</th>
                             <th scope="col">Bill No</th>
-                            <th scope="col">Table</th>
                             <th scope="col">Payment Method</th>
-                            <th scope="col">Customer Name</th>
                             <th scope="col">Bill Total Amount</th>
 
                             {{-- <th scope="col">Action</th> --}}
@@ -60,9 +58,7 @@
                             <td>
                                 {{$item->bill_id}}
                             </td>
-                            <td> {{$item->table->table_name}}</td>
                             <td>{{$item->payment_method->payment_method_name}}</td>
-                            <td>{{$item->customer->customer_username}}</td>
                             <td>{{$item->bill_total_amount}}</td>
                         </tr>
                         @endforeach

@@ -50,6 +50,43 @@ class DashboardController extends Controller
         ]);
     }
 
+    //order by sale report
+
+    public function order_by_sale()
+    {
+
+        $profit = $this->profit_calc();
+
+        $total_expense  = $this->expense_calc();
+
+        $today_order_list =$this->order_table_data_of_today();
+        $week_order_list =$this->order_table_data_of_week();
+        $total_order_list =$this->order_table_data_of_total();
+
+        $total_revenue = $this->totalrevenuecalc();
+        $week_revenue = $this->weekrevenuecalc();
+        $today_revenue = $this->todayrevenuecalc();
+
+
+        return view('sale_report.order_sale',[
+            'total_revenue'=>$total_revenue,
+            'week_revenue'=>$week_revenue,
+            'today_revenue'=>$today_revenue,
+
+
+            'today_order_list'=>$today_order_list,
+            'week_order_list'=>$week_order_list,
+            'total_order_list'=>$total_order_list,
+
+
+
+            'total_expense'=>$total_expense,
+
+            'profit'=>$profit,
+        ]);
+    }
+
+
     protected function totalrevenuecalc(){
         $total = [];
         $total_revenue = 0;

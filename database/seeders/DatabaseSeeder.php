@@ -25,7 +25,11 @@ class DatabaseSeeder extends Seeder
         Role::create(['name'=>'user']);
 
         DB::table('categories')->insert([
-            'category_name'=>'momo',
+            'category_name'=>'Chocolate Paan',
+        ]);
+
+        DB::table('categories')->insert([
+            'category_name'=>'Sweet Paan',
         ]);
 
         DB::table('tables')->insert([
@@ -34,14 +38,25 @@ class DatabaseSeeder extends Seeder
 
 
         DB::table('products')->insert([
-            'product_name'=>'chickenMOMO',
-            'product_price' => 200,
+            'product_name'=>'Chocolate Paan',
+            'product_price' => 80,
             'category_id' => 1,
         ]);
         DB::table('products')->insert([
-            'product_name'=>'steemMOMO',
-            'product_price' => 100,
+            'product_name'=>'Choco Paan',
+            'product_price' => 80,
             'category_id' => 1,
+        ]);
+
+        DB::table('products')->insert([
+            'product_name'=>'Paan Shot',
+            'product_price' => 65,
+            'category_id' => 2,
+        ]);
+        DB::table('products')->insert([
+            'product_name'=>'Bullet Paan',
+            'product_price' => 80,
+            'category_id' => 2,
         ]);
 
         DB::table('users')->insert([
@@ -71,6 +86,10 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('payment_methods')->insert([
             'payment_method_name'=>'cash',
+        ]);
+
+        DB::table('payment_methods')->insert([
+            'payment_method_name'=>'Phone Pay',
         ]);
 
         DB::table('customers')->insert([

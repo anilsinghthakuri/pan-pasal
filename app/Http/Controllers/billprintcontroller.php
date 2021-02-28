@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 require __DIR__ . '/../../../vendor/autoload.php';
 use Mike42\Escpos\Printer;
 use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
+use Mike42\Escpos\PrintConnectors\NetworkPrintConnector;
+
 
 
 use App\Models\Bill;
@@ -47,84 +49,89 @@ class billprintcontroller extends Controller
             Order::where('table_id',$table)->where('bill_status',0)->update(['bill_status' => 1,'bill_id'=>$bill_num]);
 
 
-        // try {
+         try {
+             $this->kot_bill($table);
+            // $connector = new NetworkPrintConnector("192.168.123.100", 9100);
 
-        //     $connector = new WindowsPrintConnector("pos");
+              $connector = new WindowsPrintConnector("pos");
 
-        //     $printer = new Printer($connector);
-
-        //      //test data
-        //      $title = array(new item('Product Name','Quantity','Sub Price'));
-
-        //     // ($orderdata);
-        //      foreach ($orderdata as $key => $value) {
-        //        $product_id = $orderdata[$key]['product_id'];
-        //          $productname = DB::table('products')->where('product_id',$product_id)->first();
-
-        //          $items[] = new item ($productname->product_name,$orderdata[$key]['order_quantity'],$orderdata[$key]['order_subprice']) ;
-        //      }
-
-        //     //header of bill
-        //      $printer->setJustification(Printer::JUSTIFY_CENTER);
-        //      $printer->selectPrintMode(Printer::MODE_DOUBLE_WIDTH);
-        //      $printer->text("Dotsoft Ltd.\n");
-        //      $printer->selectPrintMode();
-        //      $printer->text("Dhangadhi,Kailali.\n");
-        //      $printer->feed();
-
-        //     //Bill type
-        //     $printer->setEmphasis(true);
-        //     $printer->text("SALES INVOICE\n");
-        //     $printer->setEmphasis(false);
-        //     $printer->feed(2);
-
-        //     //title of bill
-        //     $printer->setJustification(Printer::JUSTIFY_LEFT);
-        //     $printer->setEmphasis(true);
-        //     foreach ($title as $item) {
-
-        //         $printer->text($item->getAsString(32)); // for 58mm Font A
-        //     }
-        //     $printer->setEmphasis(false);
-        //     $printer->feed();
-
-        //     //bill body
-        //     $printer->setJustification(Printer::JUSTIFY_LEFT);
-        //     foreach ($items as $item) {
-        //         $printer->text($item->getAsString(32)); // for 58mm Font A
-        //     }
-
-        //     //total
-        //     $printer->feed(2);
-        //     $printer->setJustification(Printer::JUSTIFY_CENTER);
-        //     $printer->selectPrintMode(Printer::MODE_DOUBLE_WIDTH);
-        //     $printer->setEmphasis(true);
-        //     $printer->text("Total: ".$total_price."\n");
-        //     $printer->selectPrintMode();
-        //     $printer->setEmphasis(false);
-
-        //     //footer
-        //     $printer->feed(2);
-        //      $printer->setJustification(Printer::JUSTIFY_CENTER);
-        //      $printer->text("Thank you for shopping\n");
-        //      $printer->text("at Dotsoft\n");
-        //      $printer->text("For trading hours,\n");
-        //      $printer->text("please visit\n");
-        //      $printer->feed(2);
-
-        //     //close and cut paper
-        //     $printer->cut();
-        //     $printer->pulse();
+             $printer = new Printer($connector);
 
 
-        // }
-        // catch (Exception $e) {
-        //     // echo $e->getMessage();
-        // return redirect()->back();
+              //test data
+              $title = array(new item('Product Name','Quantity','Sub Price'));
 
-        // } finally {
-        //     $printer->close();
-        // }
+             // ($orderdata);
+              foreach ($orderdata as $key => $value) {
+                $product_id = $orderdata[$key]['product_id'];
+                  $productname = DB::table('products')->where('product_id',$product_id)->first();
+
+                  $items[] = new item ($productname->product_name,$orderdata[$key]['order_quantity'],$orderdata[$key]['order_subprice']) ;
+              }
+
+
+             //header of bill
+              $printer->setJustification(Printer::JUSTIFY_CENTER);
+              $printer->selectPrintMode(Printer::MODE_DOUBLE_WIDTH);
+              $printer->text("LOGO.\n");
+              $printer->text("Mast Banarasi Paan.\n");
+              $printer->selectPrintMode();
+              $printer->text("Nayabazar,Dhangadhi.\n");
+              $printer->text("We Serve the best.\n");
+              $printer->feed();
+
+             //Bill type
+             $printer->setEmphasis(true);
+             $printer->text("SALES INVOICE\n");
+             $printer->setEmphasis(false);
+             $printer->feed(2);
+
+             //title of bill
+             $printer->setJustification(Printer::JUSTIFY_LEFT);
+
+             $printer->setEmphasis(true);
+             foreach ($title as $item) {
+
+                 $printer->text($item->getAsString(32)); // for 58mm Font A
+             }
+             $printer->setEmphasis(false);
+             $printer->feed();
+
+             //bill body
+             $printer->setJustification(Printer::JUSTIFY_LEFT);
+             foreach ($items as $item) {
+                 $printer->text($item->getAsString(32)); // for 58mm Font A
+             }
+
+             //total
+             $printer->feed(2);
+            $printer->setJustification(Printer::JUSTIFY_CENTER);
+            $printer->selectPrintMode(Printer::MODE_DOUBLE_WIDTH);
+            $printer->setEmphasis(true);
+            $printer->text("Total: ".$total_price."\n");
+            $printer->selectPrintMode();
+            $printer->setEmphasis(false);
+             //footer
+             $printer->feed(2);
+              $printer->setJustification(Printer::JUSTIFY_CENTER);
+              $printer->text("Thank you\n");
+              $printer->text("Visit Again\n");
+
+              $printer->feed(2);
+
+            //close and cut paper
+             $printer->cut();
+             $printer->pulse();
+
+
+         }
+         catch (Exception $e) {
+             // echo $e->getMessage();
+         return redirect()->back();
+
+         } finally {
+             $printer->close();
+         }
         return redirect()->back();
     }
 
@@ -157,7 +164,7 @@ class billprintcontroller extends Controller
                 // ($orderdata);
 
                 $time = Carbon::now();
-                $title = array(new kit('Product Name','Place'));
+                $title = array(new kit('Product Name','Quantity'));
 
                  foreach ($kot_bill as $key => $value) {
                    $product_id = $kot_bill[$key]['product_id'];
@@ -165,7 +172,7 @@ class billprintcontroller extends Controller
                      $productname = DB::table('products')->where('product_id',$product_id)->first();
                      $tablename = DB::table('tables')->where('table_id',$table_id)->first();
 
-                     $items[] = new kit ($productname->product_name,$tablename->table_name) ;
+                     $items[] = new kit ($productname->product_name,'1') ;
                  }
 
                 //Bill type
